@@ -5,7 +5,7 @@ import Link from "next/link";
 import DOMPurify from "isomorphic-dompurify";
 import Pagination from "./Pagination";
 
-const PRODUCT_PER_PAGE = 8;
+const PRODUCT_PER_PAGE = 9;
 
 const ProductList = async ({
   categoryId,
@@ -50,11 +50,11 @@ const ProductList = async ({
   const res = await productQuery.find();
 
   return (
-    <div className="mt-12 flex gap-x-8 gap-y-16 justify-center flex-wrap">
+    <div className="mt-12 flex gap-x-12 gap-y-16 justify-center flex-wrap">
       {res.items.map((product: products.Product) => (
         <Link
           href={"/" + product.slug}
-          className="w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]"
+          className="w-full flex flex-col gap-4 sm:w-[45%] lg:w-[30%]"
           key={product._id}
         >
           <div className="relative w-full h-80">

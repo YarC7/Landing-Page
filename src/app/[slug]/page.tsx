@@ -1,7 +1,4 @@
-import Add from "@/components/Add";
-import CustomizeProducts from "@/components/CustomizeProduct";
 import ProductImages from "@/components/ProductImage";
-import Reviews from "@/components/Reviews";
 import { wixClientServer } from "@/lib/wixClientServer";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";

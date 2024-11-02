@@ -38,7 +38,7 @@ const Navbar = () => {
         </div>
         {/* RIGHT */}
         <div className="w-1/3 xl:w-1/4 flex items-center justify-center gap-8">
-          {/* <Link
+          <Link
             href={"https://www.facebook.com/profile.php?id=100091268877738"}
           >
             <Image src="/facebook.png" alt="" width={32} height={32} />
@@ -46,6 +46,7 @@ const Navbar = () => {
           <Link href={"https://www.instagram.com/"}>
             <Image src="/instagram.png" alt="" width={32} height={32} />
           </Link>
+          {/* 
           <Link href={"https://www.zalo.com/"}>
             <Image src="/zalo.png" alt="" width={32} height={32} />
           </Link>
