@@ -5,7 +5,7 @@ import Link from "next/link";
 import DOMPurify from "isomorphic-dompurify";
 import Pagination from "./Pagination";
 
-const PRODUCT_PER_PAGE = 9;
+const PRODUCT_PER_PAGE = 12;
 
 const ProductList = async ({
   categoryId,
@@ -22,12 +22,6 @@ const ProductList = async ({
     .queryProducts()
     .startsWith("name", searchParams?.name || "")
     .eq("collectionIds", categoryId)
-    .hasSome(
-      "productType",
-      searchParams?.type ? [searchParams.type] : ["physical", "digital"]
-    )
-    .gt("priceData.price", searchParams?.min || 0)
-    .lt("priceData.price", searchParams?.max || 99999999999)
     .limit(limit || PRODUCT_PER_PAGE)
     .skip(
       searchParams?.page
@@ -50,7 +44,7 @@ const ProductList = async ({
   const res = await productQuery.find();
 
   return (
-    <div className="mt-12 flex gap-x-12 gap-y-16 justify-center flex-wrap">
+    <div className="mt-12 flex gap-x-14 gap-y-12 justify-center flex-wrap">
       {res.items.map((product: products.Product) => (
         <Link
           href={"/" + product.slug}
@@ -92,11 +86,13 @@ const ProductList = async ({
           )}
         </Link>
       ))}
-      <Pagination
-        currentPage={res.currentPage || 0}
-        hasPrev={res.hasPrev()}
-        hasNext={res.hasNext()}
-      />
+      {(searchParams==="all-products") ? (
+        <Pagination
+          currentPage={res.currentPage || 0}
+          hasPrev={res.hasPrev()}
+          hasNext={res.hasNext()}
+        />
+      ) : null}
     </div>
   );
 };

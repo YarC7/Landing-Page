@@ -11,15 +11,17 @@ const Projects = async ({ searchParams }: { searchParams: any }) => {
     searchParams.cat || "all-products"
   );
   return (
-    <div className="px-4 md:px-4 lg:px-8 xl:px-16 2xl:px-32 relative">
+    <div className="px-4 md:px-4 lg:px-8 xl:px-10 2xl:px-12 relative">
       {/* PRODUCTS */}
-      <h1 className="mt-12 text-xl font-semibold">All Projects is Here!</h1>
+      <div className="flex flex-col items-center">
+        <h1 className="mt-12 text-xl font-semibold">All Projects is Here!</h1>
+      </div>
       <Suspense fallback={<Skeleton />}>
         <ProductList
           categoryId={
             cat.collection?._id || "00000000-000000-000000-000000000001"
           }
-          searchParams={searchParams}
+          searchParams={"all-products"}
         />
       </Suspense>
     </div>
