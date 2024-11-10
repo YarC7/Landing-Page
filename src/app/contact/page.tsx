@@ -22,6 +22,7 @@ const Contact = () => {
             <br />
             Bình Thạnh,Ho Chi Minh City, Vietnam
           </p>
+          <span className="font-semibold">Working Hour: 9.00 - 18.00</span>
           <span className="font-semibold">Delta.atelier.vn@gmail.com</span>
           <span className="font-semibold">(+84) 79 828 9399</span>
           <div className="flex gap-6">
