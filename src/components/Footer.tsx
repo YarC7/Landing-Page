@@ -13,18 +13,19 @@ const Footer = () => {
   return (
     <div className="py-12 px-4 md:px-8 lg:px-12 xl:px-24 2xl:px-32 bg-gray-100 text-sm border-t-2 ">
       {/* TOP */}
-      <div className="flex flex-col md:flex-row justify-between justify-items-center gap-24">
+      <div className="flex flex-col md:flex-row justify-between justify-items-center gap-8">
         {/* LEFT */}
         <div className="w-full lg:w-1/2 flex flex-col gap-8 items-center">
           <Link href="/">
             <div className="text-2xl tracking-wide">Delta Atelier</div>
           </Link>
           <p>
-            19 Xô Viết Nghệ Tĩnh, Phường 17, Bình Thạnh, Ho Chi Minh City,
+            19 Xô Viết Nghệ Tĩnh, Phường 17, Bình Thạnh,
+            <br /> Ho Chi Minh City,
             Vietnam
           </p>
         </div>
-        <div className="w-full lg:w-1/2 flex flex-col gap-8 items-center">
+        <div className="w-full lg:w-1/2 flex flex-col gap-4 items-center">
           {isLanguage === "en" ? (
             <h1 className="font-medium text-lg">Contact Us</h1>
           ) : (
@@ -36,7 +37,7 @@ const Footer = () => {
           <span className="font-semibold">(+84) 79 828 9399</span>
         </div>
         {/* RIGHT */}
-        <div className="w-full lg:w-1/2 flex flex-col gap-8 items-center">
+        <div className="w-full lg:w-1/2 flex flex-col gap-4 items-center">
           {isLanguage === "en" ? (
             <h1 className="font-medium text-lg">Follow Us</h1>
           ) : (
@@ -55,7 +56,7 @@ const Footer = () => {
         </div>
       </div>
       {/* BOTTOM */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-8">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 mt-4">
         <div className="">@NgDCanh</div>
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="">
@@ -80,7 +81,7 @@ const Footer = () => {
               </button>
             </span>
           </div>
-          <div className="">
+          <div className="flex flex-col items-center">
             <span className="text-gray-500 mr-4">© 2024 Delta Atelier</span>
           </div>
         </div>

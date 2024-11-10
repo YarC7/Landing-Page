@@ -22,7 +22,7 @@ const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 3000);
+    }, 5000); //5s to next image
 
     return () => clearInterval(interval);
   }, []);

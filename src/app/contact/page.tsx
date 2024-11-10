@@ -6,20 +6,21 @@ import Skeleton from "@/components/Skeleton";
 
 const Contact = () => {
   return (
-    <div className="mx-24 my-12">
-      <div className="flex flex-col md:flex-row justify-between ">
-        <div className="w-full lg:w-1/2 flex flex-col rounded-3xl">
+    <div className="mx-6 md:mx-24 my-6">
+      <div className="flex flex-col md:flex-row justify-between gap-4 ">
+        <div className="w-full md:w-1/2  flex flex-col rounded-3xl p-2">
           <Suspense fallback={<Skeleton />}>
             <Map />
           </Suspense>
         </div>
-        <div className="w-full lg:w-1/2 flex flex-col p-12 justify-items-center gap-8">
+        <div className="w-full lg:w-1/2 flex flex-col p-2 items-center gap-8 place-content-center z-10">
           <Link href="/">
             <div className="text-5xl tracking-wide">Delta Atelier</div>
           </Link>
           <p>
-            19 Xô Viết Nghệ Tĩnh, Phường 17, Bình Thạnh, Ho Chi Minh City,
-            Vietnam
+            19 Xô Viết Nghệ Tĩnh, Phường 17,
+            <br />
+            Bình Thạnh,Ho Chi Minh City, Vietnam
           </p>
           <span className="font-semibold">Delta.atelier.vn@gmail.com</span>
           <span className="font-semibold">(+84) 79 828 9399</span>
