@@ -28,29 +28,10 @@ const ProductImage = ({ items }: { items: any }) => {
             sizes="50vw"
             className="object-conver rounded-md"
           />
-        </div>
-      </div>
-      <div className="m-4">Featured Images:</div>
-      <div className="flex gap-4 mb-8 overflow-x-auto">
-        {items.map((item: any, i: number) => (
-          <div
-            className="w-[20%] h-24 relative cursor-pointer"
-            key={item.id}
-            onClick={() => setIndex(i)}
-          >
-            <Image
-              src={item.image.url}
-              alt=""
-              fill
-              sizes="30vw"
-              className="object-cover rounded-md"
-            />
-          </div>
-        ))}
-        {/* Previous Button */}
+          {/* Previous Button */}
         <button
           type="button"
-          className="absolute bottom-20 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 z-30 flex items-center justify-center  px-4 cursor-pointer"
           onClick={handlePrev}
         >
           <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60">
@@ -76,7 +57,7 @@ const ProductImage = ({ items }: { items: any }) => {
         {/* Next Button */}
         <button
           type="button"
-          className="absolute bottom-20 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer"
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 flex items-center justify-center  px-4 cursor-pointer"
           onClick={handleNext}
         >
           <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60">
@@ -98,6 +79,26 @@ const ProductImage = ({ items }: { items: any }) => {
             <span className="sr-only">Next</span>
           </span>
         </button>
+        </div>
+      </div>
+      <div className="m-4">Featured Images:</div>
+      <div className="flex gap-4 overflow-x-auto ">
+        {items.map((item: any, i: number) => (
+          <div
+            className="w-40 h-24 relative cursor-pointer flex-shrink-0"
+            key={item.id}
+            onClick={() => setIndex(i)}
+          >
+            <Image
+              src={item.image.url}
+              alt=""
+              fill
+              sizes="30vw"
+              className="object-cover rounded-md"
+            />
+          </div>
+        ))}
+        
       </div>
     </div>
   );
