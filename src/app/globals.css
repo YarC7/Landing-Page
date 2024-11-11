@@ -4,6 +4,7 @@
 
 ::-webkit-scrollbar {
     width: 16px;
+ 
 }
 ::-webkit-scrollbar-thumb {
     background-color: #d6dee1;
@@ -14,7 +15,6 @@
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
-
 .scrollbar-hide {
     scrollbar-width: none;
 }
