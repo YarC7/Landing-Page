@@ -8,7 +8,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const isLanguage = useSelector((state: any) => state.language.isLanguage);
   return (
-    <div className="h-20 px-4 md:px-8 lg:px-12 xl:px-24 2xl:px-32 relative">
+    <div className="h-16 px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24 relative">
       {/* MOBILE */}
       <div className="h-full flex items-center justify-between md:hidden">
         <Link href="/">
@@ -25,27 +25,27 @@ const Navbar = () => {
             <Image src="/logo.ico" alt="" width={64} height={64} />
             <div className="text-2xl tracking-wide">Delta Atelier</div>
           </Link>
-          <div className="hidden xl:flex gap-6">
+          <div className="hidden xl:flex gap-4">
             {/* <Link href="/">Homepage</Link> */}
             <Link href="/projects">
               {isLanguage === "en" ? (
-                <p className="text-xl">Projects</p>
+                <p className="text-xl ">Projects</p>
               ) : (
-                <p className="text-xl">Dự Án</p>
+                <p className="text-xl w-20">Dự Án</p>
               )}
             </Link>
             <Link href="/about">
               {isLanguage === "en" ? (
                 <p className="text-xl">About</p>
               ) : (
-                <p className="text-xl">Về Chúng Tôi</p>
+                <p className="text-xl w-36">Về Chúng Tôi</p>
               )}
             </Link>
             <Link href="/contact">
               {isLanguage === "en" ? (
                 <p className="text-xl">Contact</p>
               ) : (
-                <p className="text-xl">Liên Hệ</p>
+                <p className="text-xl w-20">Liên Hệ</p>
               )}
             </Link>
           </div>
