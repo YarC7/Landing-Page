@@ -4,7 +4,8 @@ import Skeleton from "@/components/Skeleton";
 import React, { Suspense } from "react";
 import { wixClientServer } from "@/lib/wixClientServer";
 
-const Projects = async ({ searchParams }: { searchParams: any }) => {
+const Projects = async (props: { searchParams: Promise<any> }) => {
+  const searchParams = await props.searchParams;
   const wixClient = await wixClientServer();
 
   const cat = await wixClient.collections.getCollectionBySlug(

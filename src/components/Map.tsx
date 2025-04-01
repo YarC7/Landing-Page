@@ -1,22 +1,13 @@
 "use client";
 import React from "react";
-import {
-  GoogleMap,
-  LoadScript,
-  Marker,
-  DirectionsService,
-  DirectionsRenderer,
-  useJsApiLoader,
-} from "@react-google-maps/api";
-
 const containerStyle = {
   width: "100%",
   height: "400px",
 };
 
 const destination = {
-  lat: 792294,
-  lng: 106.706681,
+  lat: 10.792,
+  lng: 106.707,
 };
 
 const Map = () => {

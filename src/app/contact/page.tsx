@@ -1,8 +1,8 @@
 import Map from "@/components/Map";
 import React, { Suspense } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import Skeleton from "@/components/Skeleton";
+import MapBox from "@/components/Mapbox";
 
 const Contact = () => {
   return (
@@ -10,7 +10,8 @@ const Contact = () => {
       <div className="flex flex-col md:flex-row justify-between gap-4 ">
         <div className="w-full md:w-1/2  flex flex-col rounded-3xl p-2">
           <Suspense fallback={<Skeleton />}>
-            <Map />
+            {/* <Map /> */}
+            <MapBox/>
           </Suspense>
         </div>
         <div className="w-full lg:w-1/2 flex flex-col p-2 items-center gap-8 place-content-center z-10">
