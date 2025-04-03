@@ -1,8 +1,7 @@
-"use client"
+"use client";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import themeSlice from "./features/theme/themeSlice";
 import languagelSlice from "./features/language/languageSlice";
-
 
 import {
   persistStore,
@@ -18,7 +17,7 @@ import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
 const createNoopStorage = () => {
   return {
-    getItem(_key:any) {
+    getItem(_key: any) {
       return Promise.resolve(null);
     },
     setItem(_key, value) {
@@ -30,17 +29,23 @@ const createNoopStorage = () => {
   };
 };
 
-const storage = typeof window !== "undefined" ? createWebStorage("local") : createNoopStorage();
+const storage =
+  typeof window !== "undefined"
+    ? createWebStorage("local")
+    : createNoopStorage();
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-  whitelist: ['language','theme'], // specify slices to persist
-}
+  whitelist: ["language", "theme"], // specify slices to persist
+};
 const rootReducer = {
   language: languagelSlice,
   theme: themeSlice,
 };
-const persistedReducer = persistReducer(persistConfig, combineReducers(rootReducer));
+const persistedReducer = persistReducer(
+  persistConfig,
+  combineReducers(rootReducer)
+);
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
@@ -50,7 +55,6 @@ const store = configureStore({
       },
     }).concat(),
 });
-
 
 // Persistor
 export const persistor = persistStore(store);

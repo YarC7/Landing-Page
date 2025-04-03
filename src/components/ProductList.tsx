@@ -42,7 +42,6 @@ const ProductList = async ({
   }
 
   const res = await productQuery.find();
-
   return (
     <div className="mt-12 flex gap-x-14 gap-y-12 justify-center flex-wrap">
       {res.items.map((product: products.Product) => (

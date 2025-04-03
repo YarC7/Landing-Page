@@ -20,35 +20,36 @@ const Navbar = () => {
       {/* BIGGER SCREENS */}
       <div className="hidden md:flex items-center justify-between gap-8 h-full">
         {/* LEFT */}
-        <div className="w-2/3 xl:w-1/2 flex items-center gap-12">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.ico" alt="" width={64} height={64} />
-            <div className="text-2xl tracking-wide">Delta Atelier</div>
-          </Link>
-          <div className="hidden xl:flex gap-4">
-            {/* <Link href="/">Homepage</Link> */}
-            <Link href="/projects">
-              {isLanguage === "en" ? (
-                <p className="text-xl ">Projects</p>
-              ) : (
-                <p className="text-xl w-20">Dự Án</p>
-              )}
-            </Link>
-            <Link href="/about">
-              {isLanguage === "en" ? (
-                <p className="text-xl">About</p>
-              ) : (
-                <p className="text-xl w-36">Về Chúng Tôi</p>
-              )}
-            </Link>
-            <Link href="/contact">
-              {isLanguage === "en" ? (
-                <p className="text-xl">Contact</p>
-              ) : (
-                <p className="text-xl w-20">Liên Hệ</p>
-              )}
+        <div className="w-1/3 xl:w-1/2 flex items-center gap-12 justify-between">
+          <div className="">
+            <Link href="/" className="flex items-center gap-3">
+              <Image src="/logo.ico" alt="" width={64} height={64} />
+              {/* <div className="text-2xl tracking-wide">Delta Atelier</div> */}
             </Link>
           </div>
+        </div>
+        <div className="hidden xl:flex w-1/2 gap-8 ">
+          <Link href="/projects">
+            {isLanguage === "en" ? (
+              <p className="text-lg font-serif ">Projects</p>
+            ) : (
+              <p className="text-lg font-serif w-20">Dự Án</p>
+            )}
+          </Link>
+          <Link href="/studio">
+            {isLanguage === "en" ? (
+              <p className="text-lg font-serif">Office</p>
+            ) : (
+              <p className="text-lg font-serif w-36">Studio</p>
+            )}
+          </Link>
+          <Link href="/contact">
+            {isLanguage === "en" ? (
+              <p className="text-lg font-serif">Contact</p>
+            ) : (
+              <p className="text-lg font-serif w-20">Liên Hệ</p>
+            )}
+          </Link>
         </div>
         {/* RIGHT */}
         <div className="w-1/3 xl:w-1/4 flex items-center justify-end gap-8">
