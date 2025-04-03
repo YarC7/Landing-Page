@@ -11,19 +11,17 @@ const Footer = () => {
     dispatch(setIsLanguage(lang));
   };
   return (
-    <div className="py-12 px-4 md:px-8 lg:px-12 xl:px-24 2xl:px-32 bg-gray-100 text-sm border-t-2 ">
+    <div className="py-6 px-4 md:px-6 lg:px-6 xl:px-24 2xl:px-32 text-sm border-t-2 ">
       {/* TOP */}
-      <div className="flex flex-col md:flex-row justify-between justify-items-center gap-8">
+      <div className="flex flex-col md:flex-row justify-between justify-items-center gap-4">
         {/* LEFT */}
-        <div className="w-full lg:w-1/2 flex flex-col gap-8 items-center">
+        <div className="w-full lg:w-1/2 flex flex-col gap-4 items-center text-center">
           <Link href="/">
-            <div className="text-2xl tracking-wide">Delta Atelier</div>
+            <div className="text-2xl tracking-wide">
+              Delta Atelier Architecture
+            </div>
           </Link>
-          <p>
-            19 Xô Viết Nghệ Tĩnh, Phường 17, Bình Thạnh,
-            <br /> Ho Chi Minh City,
-            Vietnam
-          </p>
+          <p>8/3 , 3 Street, An Khanh Ward, Thu Duc City <br /> Ho Chi Minh City</p>
         </div>
         <div className="w-full lg:w-1/2 flex flex-col gap-4 items-center">
           {isLanguage === "en" ? (
@@ -57,8 +55,8 @@ const Footer = () => {
       </div>
       {/* BOTTOM */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 mt-4">
-        <div className="">@NgDCanh</div>
-        <div className="flex flex-col gap-8 md:flex-row">
+        {/* <div className="">@NgDCanh</div> */}
+        <div className="flex flex-col gap-4 md:flex-row">
           <div className="">
             {isLanguage === "en" ? (
               <span className="text-gray-500 mr-4">Language</span>
@@ -81,8 +79,8 @@ const Footer = () => {
               </button>
             </span>
           </div>
-          <div className="flex flex-col items-center">
-            <span className="text-gray-500 mr-4">© 2024 Delta Atelier</span>
+          <div className="flex flex-col items-center text-center">
+            <span className="text-gray-500">© 2024 Delta Atelier</span>
           </div>
         </div>
       </div>

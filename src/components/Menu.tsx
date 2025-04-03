@@ -2,11 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
-
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [open]);
   return (
     <div className="">
       <Image
@@ -18,7 +24,7 @@ const Menu = () => {
         onClick={() => setOpen((prev) => !prev)}
       />
       {open && (
-        <div className="absolute bg-white text-black left-0 top-20 w-full h-[calc(100vh-80px)] flex flex-col items-center justify-center gap-8 text-xl z-50">
+        <div className="fixed inset-0 bg-white text-black left-0 top-16 w-full h-[calc(100vh-80px)] flex flex-col items-center justify-center gap-8 text-xl z-50">
           <Link onClick={() => setOpen((prev) => !prev)} href="/">
             Homepage
           </Link>

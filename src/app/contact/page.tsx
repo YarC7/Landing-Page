@@ -17,11 +17,11 @@ const Contact = () => {
         <div className="w-full lg:w-1/3 flex flex-col gap-8 pl-4 z-10">
           <Link href="/">
             <div className="text-3xl tracking-wide">
-              Delta Atelier Architechture
+              Delta Atelier Architecture
             </div>
           </Link>
           <div className="p-2 flex flex-col">
-            <p >
+            <p>
               8/3, 3 Street, An Khanh Ward, Thu Duc City
               <br />
               Ho Chi Minh City, Vietnam
