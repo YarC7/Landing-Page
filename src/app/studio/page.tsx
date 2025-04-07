@@ -2,7 +2,7 @@ import ProjectNavigation from "@/components/ProjectNavigation";
 import Image from "next/image";
 import React from "react";
 
-const About = () => {
+const Studio = () => {
   return (
     <div>
       <div className="relative h-[850px] pt-12 flex items-center">
@@ -62,4 +62,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Studio;

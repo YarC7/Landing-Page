@@ -3,7 +3,12 @@ import Link from "next/link";
 import Menu from "./Menu";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
-
+import {
+  SignOutButton,
+  // UserButton,
+  SignedIn,
+  UserButton,
+} from "@clerk/nextjs";
 const Navbar = () => {
   const dispatch = useDispatch();
   const isLanguage = useSelector((state: any) => state.language.isLanguage);
@@ -61,13 +66,14 @@ const Navbar = () => {
           <Link href={"https://www.instagram.com/"}>
             <Image src="/black-insta.png" alt="" width={32} height={32} />
           </Link>
-          {/* 
-          <Link href={"https://www.zalo.com/"}>
-            <Image src="/zalo.png" alt="" width={32} height={32} />
-          </Link>
-          <Link href={"https://www.viber.com/"}>
-            <Image src="/viber.png" alt="" width={32} height={32} />
-          </Link> */}
+          <div className="flex items-center gap-4">
+            <SignedIn>
+              <div className="w-[2px] h-6 bg-black" />
+              {/* <Link href="/user-profile">Profile</Link> */}
+              <UserButton />
+              <SignOutButton />
+            </SignedIn>
+          </div>
         </div>
       </div>
     </div>

@@ -31,8 +31,8 @@ const Menu = () => {
           <Link onClick={() => setOpen((prev) => !prev)} href="/projects">
             Projects
           </Link>
-          <Link onClick={() => setOpen((prev) => !prev)} href="/about">
-            About
+          <Link onClick={() => setOpen((prev) => !prev)} href="/Studio">
+            Studio
           </Link>
           <Link onClick={() => setOpen((prev) => !prev)} href="/contact">
             Contact

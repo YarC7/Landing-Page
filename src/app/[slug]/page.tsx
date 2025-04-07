@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+// import {Accordion, AccordionItem} from "@heroui/accordion";
 const SinglePage = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params;
   const wixClient = await wixClientServer();

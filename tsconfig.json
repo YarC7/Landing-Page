@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "src/app/storeProvider.tsx",
     "src/components/Goong.jsx",
-    "src/app/team/page.tsx"
+    "src/app/team/page.tsx",
+    "src", "node_modules"
   ],
   "exclude": ["node_modules"]
 }
