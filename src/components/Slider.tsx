@@ -3,18 +3,18 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const images = [
-  { id: 1, img: "/demo/a (1).jpeg" },
-  { id: 2, img: "/demo/a (1).jpg" },
-  { id: 3, img: "/demo/a (2).jpeg" },
-  { id: 4, img: "/demo/a (2).jpg" },
-  { id: 5, img: "/demo/a (2).png" },
-  { id: 6, img: "/demo/a (3).jpeg" },
-  { id: 7, img: "/demo/a (3).jpg" },
-  { id: 8, img: "/demo/a (3).png" },
-  { id: 9, img: "/demo/a (4).jpeg" },
-  { id: 10, img: "/demo/a (4).jpg" },
-  { id: 11, img: "/demo/a (5).jpeg" },
-  { id: 12, img: "/demo/a (6).jpeg" },
+  { id: 1, img: "/demo/a (1).webp" },
+  { id: 2, img: "/demo/a (2).webp" },
+  { id: 3, img: "/demo/a (3).webp" },
+  { id: 4, img: "/demo/a (4).webp" },
+  { id: 5, img: "/demo/a (5).webp" },
+  { id: 6, img: "/demo/a (6).webp" },
+  { id: 7, img: "/demo/a (7).webp" },
+  { id: 8, img: "/demo/a (8).webp" },
+  { id: 9, img: "/demo/a (9).webp" },
+  { id: 10, img: "/demo/a (10).webp" },
+  { id: 11, img: "/demo/a (11).webp" },
+  { id: 12, img: "/demo/a (12).webp" },
 ];
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,10 +55,9 @@ const Slider = () => {
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           >
-            <Image
-              src={image.img}
-              fill
-              className="object-cover w-full h-full"
+            <img
+              src={`${image.img}?q=70`}
+              className="object-cover"
               alt={`Slide ${index + 1}`}
             />
           </div>

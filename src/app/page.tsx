@@ -7,7 +7,9 @@ import Footer from "@/components/Footer";
 const HomePage = async () => {
   return (
     <div className="">
-      <Slider />
+      <Suspense fallback={<Skeleton />}>
+        <Slider />
+      </Suspense>
       <div className="md:hidden">
         <Footer />
       </div>
