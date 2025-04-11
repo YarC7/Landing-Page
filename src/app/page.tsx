@@ -1,9 +1,10 @@
 import ProductList from "@/components/ProductList";
-import Slider from "@/components/Slider";
+// import Slider from "@/components/Slider";
 import { Suspense } from "react";
 import Skeleton from "@/components/Skeleton";
 import Footer from "@/components/Footer";
-
+import dynamic from 'next/dynamic';
+const Slider = dynamic(() => import('@/components/Slider'));
 const HomePage = async () => {
   return (
     <div className="">

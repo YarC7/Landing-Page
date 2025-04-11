@@ -58,7 +58,7 @@ const Slider = () => {
             <Image
               src={`${image.img}?q=70`}
               fill
-              className="object-cover"
+              className="object-fill"
               alt={`Slide ${index + 1}`}
             />
           </div>
