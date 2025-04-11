@@ -55,8 +55,9 @@ const Slider = () => {
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           >
-            <img
+            <Image
               src={`${image.img}?q=70`}
+              fill
               className="object-cover"
               alt={`Slide ${index + 1}`}
             />

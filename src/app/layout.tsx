@@ -8,11 +8,12 @@ import { WixClientContextProvider } from "@/context/wixContext";
 import StoreProvider from "./StoreProvider";
 import Footer from "@/components/Footer";
 import { ImageContextProvider } from "@/context/imageContext";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 const robotoSerif = Roboto_Serif({
   weight: ["400", "700"],
   subsets: ["latin"],
-  display: 'swap',
+  display: "swap",
 });
 export const metadata: Metadata = {
   title: "Delta Atelier",
@@ -31,7 +32,11 @@ export default function RootLayout({
           <StoreProvider>
             <WixClientContextProvider>
               <Navbar />
-              <ImageContextProvider>{children}</ImageContextProvider>
+              <ImageContextProvider>
+                {children}
+                <SpeedInsights />
+                <Analytics />
+              </ImageContextProvider>
               {/* <Footer/> */}
             </WixClientContextProvider>
           </StoreProvider>

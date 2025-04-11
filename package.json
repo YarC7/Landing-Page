@@ -20,6 +20,8 @@
     "@radix-ui/react-slot": "^1.1.2",
     "@reduxjs/toolkit": "^2.3.0",
     "@types/js-cookie": "^3.0.6",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "@wix/bookings": "^1.0.429",
     "@wix/members": "^1.0.100",
     "@wix/sdk": "^1.12.12",
