@@ -30,8 +30,8 @@ export default function RootLayout({
       <html lang="en">
         <body className={robotoSerif.className}>
           <StoreProvider>
+            <Navbar />
             <WixClientContextProvider>
-              <Navbar />
               <ImageContextProvider>
                 {children}
                 <SpeedInsights />

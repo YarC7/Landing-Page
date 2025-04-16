@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="h-full flex items-center justify-between md:hidden">
         <Link href="/" aria-label="Homepage">
           {/* <div className="text-2xl tracking-wide">Delta Atelier</div> */}
-          <Image src="/logo.ico" alt="" width={64} height={64} />
+          <Image src="/logo.ico" alt="logo" width={64} height={64} priority/>
         </Link>
         <Menu />
       </div>

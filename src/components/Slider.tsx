@@ -60,6 +60,8 @@ const Slider = () => {
               fill
               className="object-fill"
               alt={`Slide ${index + 1}`}
+              loading={index === 0 ? "eager" : "lazy"}
+              priority={index === 0}
             />
           </div>
         ))}
