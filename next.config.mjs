@@ -19,6 +19,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "plus.unsplash.com",
+      },
+      {
+        protocol: "https",
         hostname: "res.cloudinary.com",
       },
       // Imgix
@@ -28,7 +32,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "lh3.googleusercontent.com",
+        hostname: "drive.google.com",
       },
       {
         protocol: "https",

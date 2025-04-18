@@ -2,18 +2,30 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 const images = [
-  { id: 1, img: "/demo/a (1).jpeg" },
-  { id: 2, img: "/demo/a (1).jpg" },
-  { id: 3, img: "/demo/a (2).jpeg" },
-  { id: 4, img: "/demo/a (2).jpg" },
-  { id: 5, img: "/demo/a (2).png" },
-  { id: 6, img: "/demo/a (3).jpeg" },
-  { id: 7, img: "/demo/a (3).jpg" },
-  { id: 8, img: "/demo/a (3).png" },
-  { id: 9, img: "/demo/a (4).jpeg" },
-  { id: 10, img: "/demo/a (4).jpg" },
-  { id: 11, img: "/demo/a (5).jpeg" },
-  { id: 12, img: "/demo/a (6).jpeg" },
+  {
+    id: 1,
+    img: "https://plus.unsplash.com/premium_photo-1664699106133-c338e54d395b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 2,
+    img: "https://images.unsplash.com/photo-1586232702178-f044c5f4d4b7?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 3,
+    img: "https://images.unsplash.com/photo-1554941829-202a0b2403b8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 4,
+    img: "https://images.unsplash.com/photo-1598016677484-ad34c3fd766e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 5,
+    img: "https://images.unsplash.com/photo-1607570838997-65f270035031?q=80&w=1688&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 6,
+    img: "https://plus.unsplash.com/premium_photo-1678544364459-34d41d823516?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ];
 const Team = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

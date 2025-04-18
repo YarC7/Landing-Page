@@ -23,6 +23,16 @@ export async function getProducts(query?: string) {
   });
 }
 
+export async function getProductsWithSlug() {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  return prisma.product.findMany({
+    select: {
+      slug: true,
+      name: true, // chỉ trả về field `name`
+    },
+  });
+}
+
 export async function getImages(id: string) {
   await new Promise((resolve) => setTimeout(resolve, 1500));
   return prisma.image.findMany({

@@ -2,15 +2,10 @@ import Filter from "@/components/Filter";
 import ProductList from "@/components/ProductList";
 import Skeleton from "@/components/Skeleton";
 import React, { Suspense } from "react";
-// import { wixClientServer } from "@/lib/wixClientServer";
 
 const Projects = async (props: { searchParams: Promise<any> }) => {
   const searchParams = await props.searchParams;
-  // const wixClient = await wixClientServer();
 
-  // const cat = await wixClient.collections.getCollectionBySlug(
-  //   searchParams.cat || "all-products"
-  // );
   return (
     <div className="px-4 md:px-4 lg:px-8 xl:px-10 2xl:px-12 relative">
       {/* PRODUCTS */}

@@ -1,6 +1,4 @@
-// import ProductImages from "@/components/ProductImage";
 import ProjectNavigation from "@/components/ProjectNavigation";
-// import { wixClientServer } from "@/lib/wixClientServer";
 import { notFound } from "next/navigation";
 import {
   Accordion,
@@ -8,32 +6,26 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { getProductbySlug, getProducts } from "@/prisma-db";
-import { Product } from "../products/page";
+import { getProductbySlug, getProducts, getProductsWithSlug } from "@/prisma-db";
 import React,{ Suspense } from "react";
 import Skeleton from "@/components/Skeleton";
 const ProductImages = React.lazy(() => import('@/components/ProductImage'));
+
+
+export const revalidate = 60; // tái tạo sau mỗi 60s
 const SinglePage = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params;
-  // const wixClient = await wixClientServer();
-  const product: Product[] = await getProductbySlug(params.slug);
 
-  // const products = await wixClient.products
-  //   .queryProducts()
-  //   .eq("slug", params.slug)
-  //   .find();
+  const product = await getProductbySlug(params.slug);
+
 
   if (!product) {
     return notFound();
   }
 
-  // const product = products.items[0];
-  // const productsResponse = await wixClient.products.queryProducts().find();
-  const productsssss: Product[] = await getProducts();
+  const productsSlug = await getProductsWithSlug();
 
-  // const productss = productsResponse.items;
-
-  const projectList = productsssss.map((item) => ({
+  const projectList = productsSlug.map((item) => ({
     name: `${item.name}`,
     href: `/${item.slug}`,
   }));

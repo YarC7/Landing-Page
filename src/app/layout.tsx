@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import localFont from "next/font/local";
 import { Inter, Roboto_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-// import { WixClientContextProvider } from "@/context/wixContext";
 import StoreProvider from "./StoreProvider";
 import Footer from "@/components/Footer";
 import { ImageContextProvider } from "@/context/imageContext";
@@ -49,19 +47,10 @@ export default function RootLayout({
         <body className={robotoSerif.className}>
           <StoreProvider>
             <Navbar />
-            {/* <WixClientContextProvider> */}
               <ImageContextProvider>
                 {children}
-
               </ImageContextProvider>
-              {/* <Footer/> */}
-            {/* </WixClientContextProvider> */}
           </StoreProvider>
-          {/* Load non-critical scripts with lazyOnload */}
-          <Script
-            src="https://maps.googleapis.com/maps/api/js"
-            strategy="lazyOnload"
-          />
         </body>
       </html>
     </ClerkProvider>

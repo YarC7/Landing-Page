@@ -21,12 +21,11 @@ A high-performance, feature-rich landing page built with cutting-edge technologi
   - Analytics integration with Vercel
 
 - 💼 **Business Features**
-  - E-commerce capabilities through Wix Stores
+  - E-commerce capabilities
   - Booking system integration
   - Member management
   - Interactive maps with Mapbox
   - Multi-language support
-  - Content management through Wix CMS
 
 ## 🔧 Tech Stack
 
@@ -44,7 +43,6 @@ A high-performance, feature-rich landing page built with cutting-edge technologi
 ### Backend & Services
 - **Database:** MongoDB with Prisma ORM
 - **Authentication:** Clerk
-- **CMS:** Wix Headless CMS
 - **Maps:** Mapbox GL
 - **Analytics:** 
   - Vercel Analytics
@@ -108,7 +106,6 @@ Required environment variables:
 - `DATABASE_URL` - MongoDB connection string
 - `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` - Clerk public key
 - `CLERK_SECRET_KEY` - Clerk secret key
-- `WIX_API_KEY` - Wix API credentials
 - `MAPBOX_TOKEN` - Mapbox access token
 
 ## 🤝 Contributing
