@@ -62,6 +62,8 @@ const Slider = () => {
               alt={`Slide ${index + 1}`}
               loading={index === 0 ? "eager" : "lazy"}
               priority={index === 0}
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,...`}
             />
           </div>
         ))}

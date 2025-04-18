@@ -1,8 +1,15 @@
-import Map from "@/components/Map";
+'use client'
+
+import dynamic from 'next/dynamic';
 import React, { Suspense } from "react";
 import Link from "next/link";
 import Skeleton from "@/components/Skeleton";
-import MapBox from "@/components/Mapbox";
+
+// Lazy load MapBox component
+const MapBox = dynamic(() => import('@/components/Mapbox'), {
+  loading: () => <Skeleton />,
+  ssr: false // Disable SSR for map component
+});
 
 const Contact = () => {
   return (
@@ -10,7 +17,6 @@ const Contact = () => {
       <div className="flex flex-col md:flex-row justify-between gap-4 ">
         <div className="w-full md:w-2/3  flex flex-col rounded-3xl">
           <Suspense fallback={<Skeleton />}>
-            {/* <Map /> */}
             <MapBox />
           </Suspense>
         </div>

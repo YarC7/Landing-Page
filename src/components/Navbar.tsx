@@ -26,10 +26,19 @@ const Navbar = () => {
       <div className="hidden md:flex items-center justify-between gap-8 h-full">
         {/* LEFT */}
         <div className="w-1/3 xl:w-1/2 flex items-center gap-12 justify-between">
-          <div className="">
-            <Link href="/" className="flex items-center gap-3">
-              <Image src="/logo.ico" alt="" width={64} height={64} />
-              {/* <div className="text-2xl tracking-wide">Delta Atelier</div> */}
+          <div className="max-w-16">
+            <Link href="/" aria-label="Homepage">
+              <Image 
+                src="/logo.ico" 
+                alt="Delta Atelier Logo" 
+                width={64} 
+                height={64} 
+                priority
+                quality={75}
+                className="w-auto h-auto"
+                loading="eager"
+                sizes="64px"
+              />
             </Link>
           </div>
         </div>
@@ -62,13 +71,13 @@ const Navbar = () => {
             aria-label="Navigate to Fanpage"
             href={"https://www.facebook.com/profile.php?id=100091268877738"}
           >
-            <Image src="/black-face.png" alt="" width={32} height={32} />
+            <Image src="/black-face.png" alt="" width={32} height={32} priority/>
           </Link>
           <Link
             href={"https://www.instagram.com/"}
             aria-label="Navigate to Fanpage"
           >
-            <Image src="/black-insta.png" alt="" width={32} height={32} />
+            <Image src="/black-insta.png" alt="" width={32} height={32} priority/>
           </Link>
           <div className="flex items-center gap-4">
             <SignedIn>

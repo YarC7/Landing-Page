@@ -8,13 +8,19 @@ import { WixClientContextProvider } from "@/context/wixContext";
 import StoreProvider from "./StoreProvider";
 import Footer from "@/components/Footer";
 import { ImageContextProvider } from "@/context/imageContext";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
+import Script from 'next/script';
+
+// Tối ưu font loading
 const robotoSerif = Roboto_Serif({
   weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  // Thêm font-display: swap để tránh FOIT
+  adjustFontFallback: true,
 });
+
 export const metadata: Metadata = {
   title: "Delta Atelier",
   description: "We do Architecture",
@@ -28,18 +34,34 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <head>
+          <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
+        </head>
         <body className={robotoSerif.className}>
           <StoreProvider>
             <Navbar />
             <WixClientContextProvider>
               <ImageContextProvider>
                 {children}
-                <SpeedInsights />
-                <Analytics />
+
               </ImageContextProvider>
               {/* <Footer/> */}
             </WixClientContextProvider>
           </StoreProvider>
+          {/* Load non-critical scripts with lazyOnload */}
+          <Script
+            src="https://maps.googleapis.com/maps/api/js"
+            strategy="lazyOnload"
+          />
         </body>
       </html>
     </ClerkProvider>
