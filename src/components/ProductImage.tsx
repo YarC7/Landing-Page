@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import React, { useState } from "react";
 const ProductImage = ({ items }: { items: any }) => {
@@ -22,10 +23,10 @@ const ProductImage = ({ items }: { items: any }) => {
       <div className="">
         <div className="h-[500px] lg:h-[810px] relative aspect-w-16 aspect-h-9">
           <Image
-            src={items[index].image.url}
+            src={items[index].imageUrl}
             alt=""
             fill
-            className="object-conver rounded-md"
+            className="object-cover rounded-md"
           />
           {/* Previous Button */}
           <button
@@ -89,7 +90,8 @@ const ProductImage = ({ items }: { items: any }) => {
             onClick={() => setIndex(i)}
           >
             <Image
-              src={item.image.url}
+              priority
+              src={item.imageUrl}
               alt=""
               fill
               sizes="30vw"

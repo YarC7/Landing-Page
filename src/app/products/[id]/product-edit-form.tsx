@@ -16,7 +16,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import ImageUrlInput from "@/components/ImageComponent";
+import dynamic from "next/dynamic";
+
+const ImageUrlInput = dynamic(() => import("@/components/ImageComponent"), {
+  ssr: false,
+});
 import Skeleton from "@/components/Skeleton";
 type ProductEditFormProps = {
   product: Product;
@@ -29,7 +33,6 @@ export default function ProductEditForm({
   const { setImages } = useImageUrlContext();
   const updateImages = useCallback(() => {
     if (images && images.length > 0) {
-      console.log("from useEffect: ", images);
       setImages(images);
     }
   }, [images, setImages]);

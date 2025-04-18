@@ -106,7 +106,7 @@ export function ProductForm() {
 
                 </div>
               ) : (
-                <div className="flex h-32  items-center justify-center rounded-lg grid grid-cols-2 gap-4">
+                <div className="h-32  items-center justify-center rounded-lg grid grid-cols-2 gap-4">
 
                 <div
                   className="flex h-32 cursor-pointer items-center justify-center rounded-lg bg-blue-50 hover:bg-blue-100"
@@ -134,7 +134,7 @@ export function ProductForm() {
                     </span>
                   </div>
                 </div>
-                <div className="flex h-32  items-center justify-center rounded-lg grid grid-cols-2 gap-4">
+                <div className="h-32  items-center justify-center rounded-lg grid grid-cols-2 gap-4">
                   <div className="rounded-lg cursor-pointer h-14 w-full bg-blue-100 hover:bg-blue-100"><span></span></div>
                   <div className="rounded-lg cursor-pointer h-14 w-full bg-blue-100 hover:bg-blue-100"><span></span></div>
                   <div className="rounded-lg cursor-pointer h-14 w-full  bg-blue-100 hover:bg-blue-100"><span></span></div>

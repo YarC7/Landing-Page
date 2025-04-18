@@ -43,10 +43,24 @@ const Menu = () => {
             <Link
               href={"https://www.facebook.com/profile.php?id=100091268877738"}
             >
-              <Image src="/black-face.png" alt="" width={32} height={32} />
+              <Image 
+                src="/black-face.png" 
+                alt="Facebook" 
+                width={32} 
+                height={32}
+                loading="lazy"
+                sizes="32px"
+              />
             </Link>
             <Link href={"https://www.instagram.com/"}>
-              <Image src="/black-insta.png" alt="" width={32} height={32} />
+              <Image 
+                src="/black-insta.png" 
+                alt="Instagram" 
+                width={32} 
+                height={32}
+                loading="lazy" 
+                sizes="32px"
+              />
             </Link>
           </div>
         </div>

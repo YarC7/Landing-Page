@@ -15,19 +15,24 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "static.wixstatic.com",
+        hostname: "images.unsplash.com",
       },
       {
         protocol: "https",
-        hostname: "people.pic1.co",
+        hostname: "res.cloudinary.com",
+      },
+      // Imgix
+      {
+        protocol: "https",
+        hostname: "*.imgix.net",
       },
       {
         protocol: "https",
-        hostname: "app-uploads-cdn.fera.ai",
+        hostname: "lh3.googleusercontent.com",
       },
       {
         protocol: "https",
-        hostname: "maps.googleapis.com",
+        hostname: "img.freepik.com",
       },
     ],
   },

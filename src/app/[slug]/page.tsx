@@ -1,32 +1,39 @@
-import ProductImages from "@/components/ProductImage";
+// import ProductImages from "@/components/ProductImage";
 import ProjectNavigation from "@/components/ProjectNavigation";
-import { wixClientServer } from "@/lib/wixClientServer";
+// import { wixClientServer } from "@/lib/wixClientServer";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-// import {Accordion, AccordionItem} from "@heroui/accordion";
+import { getProductbySlug, getProducts } from "@/prisma-db";
+import { Product } from "../products/page";
+import React,{ Suspense } from "react";
+import Skeleton from "@/components/Skeleton";
+const ProductImages = React.lazy(() => import('@/components/ProductImage'));
 const SinglePage = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params;
-  const wixClient = await wixClientServer();
+  // const wixClient = await wixClientServer();
+  const product: Product[] = await getProductbySlug(params.slug);
 
-  const products = await wixClient.products
-    .queryProducts()
-    .eq("slug", params.slug)
-    .find();
+  // const products = await wixClient.products
+  //   .queryProducts()
+  //   .eq("slug", params.slug)
+  //   .find();
 
-  if (!products.items[0]) {
+  if (!product) {
     return notFound();
   }
 
-  const product = products.items[0];
-  const productsResponse = await wixClient.products.queryProducts().find();
-  const productss = productsResponse.items;
-  const projectList = productss.map((item) => ({
+  // const product = products.items[0];
+  // const productsResponse = await wixClient.products.queryProducts().find();
+  const productsssss: Product[] = await getProducts();
+
+  // const productss = productsResponse.items;
+
+  const projectList = productsssss.map((item) => ({
     name: `${item.name}`,
     href: `/${item.slug}`,
   }));
@@ -46,16 +53,10 @@ const SinglePage = async (props: { params: Promise<{ slug: string }> }) => {
       <div className="p-4 md:p-4 lg:p-4 xl:p-8 2xl:p-16 relative gap-16">
         {/* IMG */}
         <div className="w-full lg:sticky top-20 h-max">
-          <ProductImages items={product.media?.items} />
+          <Suspense fallback={<Skeleton />}>
+            <ProductImages items={product.images} />
+          </Suspense>
         </div>
-
-        {/* TEXTS */}
-        {/* <div className="w-full lg:w-1/3 flex flex-col gap-6">
-        <h1 className="text-4xl font-medium">{product.name}</h1>
-        <p className="text-gray-500">{product.description}</p>
-        <p className="text-gray-500">{product.description}</p>
-        <p className="text-gray-500">{product.description}</p>
-      </div> */}
       </div>
       <div className="w-full h-max p-12 flex  gap-6 items-center justify-evenly">
         <div className="w-[500px] flex flex-col lg:flex-row ">
@@ -66,13 +67,11 @@ const SinglePage = async (props: { params: Promise<{ slug: string }> }) => {
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger>Project Info</AccordionTrigger>
+                <AccordionContent>{product.description}</AccordionContent>
                 <AccordionContent>
-                  Description: @@@@@@@@@@@@@@@@
+                  Location: {product.location}
                 </AccordionContent>
-                <AccordionContent>Location: #!@#$%^&*_+-=</AccordionContent>
-                <AccordionContent>
-                  Status: pending/in progress/complete
-                </AccordionContent>
+                <AccordionContent>Status: {product.status}</AccordionContent>
               </AccordionItem>
             </Accordion>
           </div>

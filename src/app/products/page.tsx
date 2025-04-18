@@ -6,11 +6,6 @@ import {
   ChevronDown,
   Grid,
   Plus,
-  Filter,
-  MoreHorizontal,
-  Search,
-  DeleteIcon,
-  Trash,
 } from "lucide-react";
 import { Button } from "../../components/ui/button";
 export type Product = {
@@ -19,6 +14,7 @@ export type Product = {
   status: string;
   location: string;
   images: string[];
+  slug: string;
   description: string;
 };
 

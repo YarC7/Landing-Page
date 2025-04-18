@@ -45,6 +45,16 @@ export async function getProduct(id: string) {
   });
 }
 
+export async function getProductbySlug(slug: string) {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  return prisma.product.findFirst({
+    where: { slug },
+    include: {
+      images: true,
+    },
+  });
+}
+
 export async function addProduct(
   name: string,
   description: string,
@@ -53,10 +63,11 @@ export async function addProduct(
   images: string[]
 ) {
   await new Promise((resolve) => setTimeout(resolve, 1500));
-
+  const slug = name.toLowerCase().replace(/\s+/g, '-');
   return prisma.product.create({
     data: {
       name,
+      slug,
       description,
       location,
       status,

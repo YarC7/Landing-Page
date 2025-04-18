@@ -24,6 +24,7 @@ export type Product = {
   location: string;
   images: string[];
   description: string;
+  slug: string;
 };
 
 export const ProductDetail = ({ products }: { products: Product[] }) => {
@@ -41,7 +42,10 @@ export const ProductDetail = ({ products }: { products: Product[] }) => {
 
   return (
     <div>
-      <DataTable data={optimisticProducts}  onRemoveProduct={removeProductById}></DataTable>
+      <DataTable
+        data={optimisticProducts}
+        onRemoveProduct={removeProductById}
+      ></DataTable>
     </div>
   );
 };

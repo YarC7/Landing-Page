@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import { Inter, Roboto_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { WixClientContextProvider } from "@/context/wixContext";
+// import { WixClientContextProvider } from "@/context/wixContext";
 import StoreProvider from "./StoreProvider";
 import Footer from "@/components/Footer";
 import { ImageContextProvider } from "@/context/imageContext";
@@ -49,13 +49,13 @@ export default function RootLayout({
         <body className={robotoSerif.className}>
           <StoreProvider>
             <Navbar />
-            <WixClientContextProvider>
+            {/* <WixClientContextProvider> */}
               <ImageContextProvider>
                 {children}
 
               </ImageContextProvider>
               {/* <Footer/> */}
-            </WixClientContextProvider>
+            {/* </WixClientContextProvider> */}
           </StoreProvider>
           {/* Load non-critical scripts with lazyOnload */}
           <Script

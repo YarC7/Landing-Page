@@ -2,15 +2,15 @@ import Filter from "@/components/Filter";
 import ProductList from "@/components/ProductList";
 import Skeleton from "@/components/Skeleton";
 import React, { Suspense } from "react";
-import { wixClientServer } from "@/lib/wixClientServer";
+// import { wixClientServer } from "@/lib/wixClientServer";
 
 const Projects = async (props: { searchParams: Promise<any> }) => {
   const searchParams = await props.searchParams;
-  const wixClient = await wixClientServer();
+  // const wixClient = await wixClientServer();
 
-  const cat = await wixClient.collections.getCollectionBySlug(
-    searchParams.cat || "all-products"
-  );
+  // const cat = await wixClient.collections.getCollectionBySlug(
+  //   searchParams.cat || "all-products"
+  // );
   return (
     <div className="px-4 md:px-4 lg:px-8 xl:px-10 2xl:px-12 relative">
       {/* PRODUCTS */}
@@ -19,10 +19,10 @@ const Projects = async (props: { searchParams: Promise<any> }) => {
       </div>
       <Suspense fallback={<Skeleton />}>
         <ProductList
-          categoryId={
-            cat.collection?._id || "00000000-000000-000000-000000000001"
-          }
-          searchParams={"all-products"}
+          // categoryId={
+          //   cat.collection?._id || "00000000-000000-000000-000000000001"
+          // }
+          // searchParams={"all-products"}
         />
       </Suspense>
     </div>
