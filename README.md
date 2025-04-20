@@ -15,7 +15,6 @@ A high-performance, feature-rich landing page built with cutting-edge technologi
 - 🛠 **Technical Features**
   - Server-side rendering with Next.js 15
   - Type-safe development with TypeScript
-  - Secure authentication via Clerk
   - Real-time data updates
   - SEO optimized
   - Analytics integration with Vercel
@@ -42,7 +41,6 @@ A high-performance, feature-rich landing page built with cutting-edge technologi
 
 ### Backend & Services
 - **Database:** MongoDB with Prisma ORM
-- **Authentication:** Clerk
 - **Maps:** Mapbox GL
 - **Analytics:** 
   - Vercel Analytics
@@ -65,7 +63,9 @@ A high-performance, feature-rich landing page built with cutting-edge technologi
    ```bash
    cp .env.example .env
    ```
-   Fill in your environment variables in `.env`
+   Fill in your environment variables in `.env`:
+   - `NEXT_PUBLIC_MAPBOX_TOKEN`
+   - `DATABASE_URL`
 
 4. **Set up Prisma**
    ```bash
@@ -80,10 +80,11 @@ A high-performance, feature-rich landing page built with cutting-edge technologi
 
 ## 🚀 Scripts
 
-- `npm run dev` - Start development server with Turbopack
+- `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
 
 ## 📁 Project Structure
 
@@ -97,28 +98,19 @@ LandingPage/
 │   └── types/       # TypeScript types
 ├── prisma/          # Database schema
 ├── public/          # Static assets
-└── ...config files
+├── .env.example     # Environment variables template
+├── next.config.js   # Next.js configuration
+├── tailwind.config.js # Tailwind CSS configuration
+└── package.json     # Project dependencies
 ```
 
-## 🔐 Environment Variables
+## 📝 License
 
-Required environment variables:
-- `DATABASE_URL` - MongoDB connection string
-- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` - Clerk public key
-- `CLERK_SECRET_KEY` - Clerk secret key
-- `MAPBOX_TOKEN` - Mapbox access token
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📞 Support
 
