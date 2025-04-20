@@ -1,0 +1,40 @@
+import { NextResponse } from 'next/server';
+import { createUser,findUserByEmail } from '@/prisma-db';
+
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    const { email, password, name } = body;
+
+    // Check if user already exists
+    const existingUser = await findUserByEmail(email);
+    if (existingUser) {
+      return NextResponse.json(
+        { success: false, message: 'Email already registered' },
+        { status: 400 }
+      );
+    }
+
+    // Create new user
+    const user = await createUser(email, password, name);
+
+    return NextResponse.json(
+      { 
+        success: true, 
+        message: 'Registration successful',
+        user: {
+          id: user.id,
+          email: user.email,
+          name: user.name
+        }
+      },
+      { status: 201 }
+    );
+  } catch (error) {
+    console.error('Registration error:', error);
+    return NextResponse.json(
+      { success: false, message: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}

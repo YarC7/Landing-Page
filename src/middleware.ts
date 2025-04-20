@@ -1,30 +1,48 @@
-import { NextRequest, NextResponse } from "next/server";
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { verifyJWT } from "./lib/jwt";
 
-const isProtectedRoute = createRouteMatcher([
-  "/product-db-create(.*)",
-  "/products(.*)",
-  "/sign-up(.*)",
-]);
+// Define protected routes that require authentication
+const protectedRoutes = [
+  /^\/product-db-create($|\/.*$)/,
+  /^\/products($|\/.*$)/,
+];
 
-const isAdminRoute = createRouteMatcher(["/admin(.*)"]);
+export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
 
-export default clerkMiddleware(async (auth, req) => {
-  const { userId, redirectToSignIn } = await auth();
-
-  if (isProtectedRoute(req) && !userId) {
-    return redirectToSignIn();
+  if (pathname === '/api/auth/register') {
+    return NextResponse.json(
+      { success: false, message: 'Registration is currently disabled' },
+      { status: 404 }
+    );
   }
-  if (
-    isAdminRoute(req) &&
-    (await auth()).sessionClaims?.metadata?.role !== "admin"
-  ) {
-    const url = new URL("/", req.url);
-    return NextResponse.redirect(url);
+  // Check if the requested path is protected
+  const isProtectedRoute = protectedRoutes.some((route) => 
+    route.test(pathname)
+  );
+
+  if (isProtectedRoute) {
+    const token = request.cookies.get("token")?.value;
+    console.log("Middleware - Checking token for path:", pathname);
+    console.log("Middleware - Token present:", !!token);
+
+    if (!token) {
+      console.log("Middleware - No token found, redirecting to login");
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+
+    const verified = await verifyJWT(token);
+    console.log("Middleware - Token verification result:", !!verified);
+    
+    if (!verified) {
+      console.log("Middleware - Invalid token, redirecting to login");
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
   }
 
-
-});
+  return NextResponse.next();
+}
 
 export const config = {
   matcher: [

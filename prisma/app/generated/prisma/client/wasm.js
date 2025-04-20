@@ -128,6 +128,15 @@ exports.Prisma.ImageScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  password: 'password',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -141,7 +150,8 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   Product: 'Product',
-  Image: 'Image'
+  Image: 'Image',
+  User: 'User'
 };
 
 /**

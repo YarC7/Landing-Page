@@ -47,7 +47,7 @@ const Slider = () => {
 
   return (
     <div id="default-carousel" className="relative w-full h-full z-0">
-      <div className="relative h-[360px] w-full overflow-hidden xl:h-[850px]">
+      <div className="relative  w-full overflow-hidden lg:h-[calc(100vh-2rem)] h-[360px] md:h-[480px]">
         {images.map((image, index) => (
           <div
             key={image.id}

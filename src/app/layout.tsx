@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Roboto_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -30,10 +29,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <head>
-          <link
+    <html lang="en">
+      <head>
+        <link
             rel="preconnect"
             href="https://fonts.googleapis.com"
             crossOrigin="anonymous"
@@ -53,6 +51,5 @@ export default function RootLayout({
           </StoreProvider>
         </body>
       </html>
-    </ClerkProvider>
   );
 }

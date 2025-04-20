@@ -1,5 +1,5 @@
 import { PrismaClient } from "../prisma/app/generated/prisma/client";
-
+import bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 export async function getProducts(query?: string) {
   await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -129,4 +129,31 @@ export async function deleteProduct(id: string) {
     where: { productId: id },
   });
   return prisma.product.delete({ where: { id } });
+}
+
+export async function findUserByEmail(email: string) {
+  return prisma.user.findUnique({
+    where: { email },
+  });
+}
+
+export async function verifyUser(email: string, password: string) {
+  const user = await findUserByEmail(email);
+  if (!user) return null;
+
+  const isValid = await bcrypt.compare(password, user.password);
+  if (!isValid) return null;
+
+  return user;
+} 
+
+export async function createUser(email: string, password: string, name?: string) {
+  const hashedPassword = await bcrypt.hash(password, 10);
+  return prisma.user.create({
+    data: {
+      email,
+      password: hashedPassword,
+      name,
+    },
+  });
 }

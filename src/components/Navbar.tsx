@@ -3,15 +3,12 @@ import Link from "next/link";
 import Menu from "./Menu";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  SignOutButton,
-  // UserButton,
-  SignedIn,
-  UserButton,
-} from "@clerk/nextjs";
+import PopOver from "./PopOver";
+import LogoutButton from "./LogoutButton";
 const Navbar = () => {
   const dispatch = useDispatch();
   const isLanguage = useSelector((state: any) => state.language.isLanguage);
+  const isAuth = useSelector((state: any) => state.auth.isAuth);
   return (
     <div className="h-16 px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24 relative">
       {/* MOBILE */}
@@ -42,7 +39,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="hidden xl:flex w-1/2 gap-8 ">
+        <div className="hidden md:flex xl:flex w-1/2 gap-8 ">
           <Link href="/projects">
             {isLanguage === "en" ? (
               <p className="text-lg font-serif ">Projects</p>
@@ -79,15 +76,15 @@ const Navbar = () => {
           >
             <Image src="/black-insta.png" alt="" width={32} height={32} priority/>
           </Link>
-          <div className="flex items-center gap-4">
-            <SignedIn>
-              <div className="w-[2px] h-6 bg-black" />
-              {/* <Link href="/user-profile">Profile</Link> */}
-              <UserButton />
-              <SignOutButton />
-            </SignedIn>
-          </div>
         </div>
+            {isAuth ? (
+              <>  
+                <div className="w-[2px] h-6 bg-black" />
+                <LogoutButton  aria-label="Logout" />
+              </>
+            ) : (
+              <Link className="hidden" href="/login">Login</Link>
+            )}
       </div>
     </div>
   );

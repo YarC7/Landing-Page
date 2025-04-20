@@ -2,7 +2,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import themeSlice from "./features/theme/themeSlice";
 import languagelSlice from "./features/language/languageSlice";
-
+import authSlice from "./features/auth/authSlice";
 import {
   persistStore,
   persistReducer,
@@ -36,11 +36,12 @@ const storage =
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["language", "theme"], // specify slices to persist
+  whitelist: ["language", "theme", "auth"], // specify slices to persist
 };
 const rootReducer = {
   language: languagelSlice,
   theme: themeSlice,
+  auth: authSlice,
 };
 const persistedReducer = persistReducer(
   persistConfig,
